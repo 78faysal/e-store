@@ -5,7 +5,7 @@ import { a } from 'react-router-dom';
 const Navbar = () => {
     return (
         <div>
-            <div className="navbar bg-base-100 container">
+            <div className="navbar bg-base-100 container mx-auto fixed top-0 z-10 w-full shadow">
                 <div className="flex-1">
                     <img className='h-16' src={logo} alt="" />
                 </div>
