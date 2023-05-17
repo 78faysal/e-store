@@ -29,7 +29,7 @@ const Header = () => {
                                 <p className='text-xl font-semibold'>In this season, find the best 🔥</p>
                                 <h2 className='text-6xl font-bold mb-4'>Exclusive collection for everyone</h2>
 
-                                <button className='btn rounded-full border-yellow-300'>Explore Now</button>
+                                <button className='btn rounded-full hover:border-yellow-300'>Explore Now</button>
                             </div>
                         </div>
                     </SwiperSlide>
