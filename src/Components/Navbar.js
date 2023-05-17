@@ -1,11 +1,10 @@
 import React from 'react';
 import logo from '../Photos/E_Store_logo.png';
-import { a } from 'react-router-dom';
 
 const Navbar = () => {
     return (
         <div>
-            <div className="navbar bg-base-100 container mx-auto fixed top-0 z-10 w-full shadow">
+            <div className="navbar bg-base-100 fixed z-10 max-sm:px-5 px-10 mx-auto top-0 shadow">
                 <div className="flex-1">
                     <img className='h-16' src={logo} alt="" />
                 </div>

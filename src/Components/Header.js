@@ -12,7 +12,7 @@ import "swiper/css/navigation";
 
 const Header = () => {
     return (
-        <div>
+        <div className='mt-20'>
             <>
                 <Swiper
                     pagination={{
@@ -24,7 +24,7 @@ const Header = () => {
                 >
                     <SwiperSlide>
                         <div className='relative'>
-                            <img style={{height: "700px"}} className='w-full object-cover brightness-75' src={img1} alt="" />
+                            <img style={{height: "600px"}} className='w-full object-cover brightness-75' src={img1} alt="" />
                             <div className='absolute text-5xl text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
                                 <p className='text-xl font-semibold'>In this season, find the best 🔥</p>
                                 <h2 className='text-6xl font-bold mb-4'>Exclusive collection for everyone</h2>
@@ -34,7 +34,7 @@ const Header = () => {
                         </div>
                     </SwiperSlide>
                     <SwiperSlide><div className='relative'>
-                        <img style={{height: "700px"}} className='h-2/5 w-full object-cover brightness-75' src={img2} alt="" />
+                        <img style={{height: "600px"}} className='h-2/5 w-full object-cover brightness-75' src={img2} alt="" />
                         <div className='absolute text-5xl text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
                             <p className='text-xl font-semibold'>In this season, find the best 🔥</p>
                             <h2 className='text-6xl font-bold mb-4'>Exclusive collection for everyone</h2>
@@ -45,7 +45,7 @@ const Header = () => {
                     </SwiperSlide>
                     <SwiperSlide>
                     <div className='relative'>
-                            <img style={{height: "700px"}} className='h-2/5 w-full object-cover brightness-75' src={img3} alt="" />
+                            <img style={{height: "600px"}} className='h-2/5 w-full object-cover brightness-75' src={img3} alt="" />
                             <div className='absolute text-5xl text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
                                 <p className='text-xl font-semibold'>In this season, find the best 🔥</p>
                                 <h2 className='text-6xl font-bold mb-4'>Exclusive collection for everyone</h2>
