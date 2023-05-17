@@ -33,7 +33,7 @@ const Products = () => {
                             }`}
                         onClick={() => handleTabClick(2)}
                     >
-                        Tab 2
+                        Earphones
                     </div>
                     <div
                         className={`p-2 mx-2 rounded-xl cursor-pointer ${activeTab === 3 ? 'bg-gray-700 text-white' : 'bg-gray-200 text-gray-600'
@@ -72,7 +72,35 @@ const Products = () => {
                                 })
                             }
                         </div>}
-                    {activeTab === 2 && <p>Content of Tab 2</p>}
+
+                        {activeTab === 2 &&
+                        <div className="grid grid-cols-4 max-sm:grid-cols-1 gap-5">
+                            {
+                                products && products.map(product => {
+                                    console.log(product)
+                                    if (product?.category === 'Earphones') {
+                                        // console.log(product)
+                                        return (
+                                            <div className="card w-72 mx-auto bg-base-100 shadow-xl">
+                                                <figure className="px-5 pt-5">
+                                                    <img src={product?.img} alt="Shoes" className="rounded-xl" />
+                                                </figure>
+                                                <div className="card-body items-center">
+                                                    <h2 className="card-title">{product?.name}</h2>
+
+                                                    <p>Seller: {product?.seller}</p>
+                                                    <p>Rating: {product?.ratings}</p>
+                                                    <div className="flex items-center gap-16 mt-2">
+                                                        <span className='text-2xl font-bold'>${product?.price}</span>
+                                                        <button className="btn hover:border-yellow-300">Buy Now</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        )
+                                    }
+                                })
+                            }
+                        </div>}
                     {activeTab === 3 && <p>Content of Tab 3</p>}
                 </div>
             </div>
