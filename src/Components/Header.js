@@ -29,15 +29,25 @@ const Header = () => {
             image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRweocjhoj41IjjcEWXFZKK33SGuePNYpN5ksznQ32RoGcTxEc&s',
         },
         {
-            id: 2,
+            id: 4,
             name: 'Gucci',
             image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwvtCsJ60bkvm1zRV4_pU-GNVRrsy8YIKkLYnFekzR7QK6A2Q&s',
+        }, 
+        {
+            id: 5,
+            name: 'Gucci',
+            image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1pZf0SlO_Ok2e2152l4J-AEbHoB4ElN589stLlFpPidn8IIy7&s',
+        }, 
+        {
+            id: 6,
+            name: 'Gucci',
+            image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQolR9dg8xk3tTgbGg7rTBxOG2866fwxyjvXX77zH8DPZTDNVw&s',
         } 
         // Add more brands here
     ];
 
     return (
-        <div className='mt-20'>
+        <div className='my-20'>
             <>
                 <Swiper
                     pagination={{
@@ -82,13 +92,11 @@ const Header = () => {
                 </Swiper>
             </>
 
-            <div className="container mx-auto py-8">
-                <h2 className="text-3xl font-bold mb-4">Our Brands</h2>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <div className="container mx-auto py-8 bg-gray-50 px-4 absolute left-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden z-10">
+                <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-6 gap-4">
                     {brands.map(brand => (
                         <div key={brand.id} className="bg-white p-4 shadow-md rounded">
-                            <img src={brand.image} alt={brand.name} className="h-24 mx-auto" />
-                            <h3 className="text-lg font-semibold mt-2">{brand.name}</h3>
+                            <img src={brand.image} alt={brand.name} className="h-16 max-sm:h-5 mx-auto" />
                         </div>
                     ))}
                 </div>

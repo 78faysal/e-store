@@ -12,13 +12,25 @@ const Testimonials = () => {
             <h2 className="text-4xl text-center font-bold">Good news from far away 🥇</h2>
             <p className="text-xl text-center text-gray-500 p-2 pb-4">Let's see what people think of E-Store</p>
             <Swiper
-                slidesPerView={2}
+                // slidesPerView={2}
                 spaceBetween={20}
                 pagination={{
                     clickable: true,
                 }}
                 modules={[Pagination]}
                 className="mySwiper"
+                breakpoints={{
+                    // Customize the number of slides per view based on screen size
+                    640: {
+                        slidesPerView: 1,
+                    },
+                    768: {
+                        slidesPerView: 2,
+                    },
+                    1024: {
+                        slidesPerView: 2,
+                    },
+                }}
             >
                 <div className="grid grid-cols-1 md:grid-cols-2 rounded-2xl  container mx-auto">
                     <SwiperSlide>
