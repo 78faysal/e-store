@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Products = () => {
 
@@ -22,25 +23,39 @@ const Products = () => {
             <div className="flex flex-col items-center">
                 <div className="flex flex-wrap justify-center mb-4">
                     <div
-                        className={`p-2 mx-2 text-lg font-semibold rounded-xl cursor-pointer ${activeTab === 1 ? 'bg-gray-700 text-white' : 'bg-gray-200 text-gray-600'
+                        className={`p-2 mx-2 text-lg font-semibold rounded-full px-4 py-1 cursor-pointer ${activeTab === 1 ? 'bg-gray-700 text-white' : 'bg-gray-200 text-gray-600'
                             }`}
                         onClick={() => handleTabClick(1)}
                     >
                         Bags
                     </div>
                     <div
-                        className={`p-2 mx-2 rounded-xl cursor-pointer ${activeTab === 2 ? 'bg-gray-700 text-white' : 'bg-gray-200 text-gray-600'
+                        className={`p-2 mx-2  rounded-full font-semibold px-4  cursor-pointer ${activeTab === 2 ? 'bg-gray-700 text-white' : 'bg-gray-200 text-gray-600'
                             }`}
                         onClick={() => handleTabClick(2)}
                     >
                         Earphones
                     </div>
                     <div
-                        className={`p-2 mx-2 rounded-xl cursor-pointer ${activeTab === 3 ? 'bg-gray-700 text-white' : 'bg-gray-200 text-gray-600'
+                        className={`p-2 mx-2 rounded-full font-semibold px-4 cursor-pointer ${activeTab === 3 ? 'bg-gray-700 text-white' : 'bg-gray-200 text-gray-600'
                             }`}
                         onClick={() => handleTabClick(3)}
                     >
-                        Tab 3
+                        Cap
+                    </div>
+                    <div
+                        className={`p-2 mx-2 rounded-full font-semibold px-4 cursor-pointer ${activeTab === 4 ? 'bg-gray-700 text-white' : 'bg-gray-200 text-gray-600'
+                            }`}
+                        onClick={() => handleTabClick(4)}
+                    >
+                        Bottle
+                    </div>
+                    <div
+                        className={`p-2 mx-2 rounded-full font-semibold px-4 cursor-pointer ${activeTab === 5 ? 'bg-gray-700 text-white' : 'bg-gray-200 text-gray-600'
+                            }`}
+                        onClick={() => handleTabClick(5)}
+                    >
+                        All
                     </div>
                 </div>
                 <div className="w-full container">
@@ -73,7 +88,7 @@ const Products = () => {
                             }
                         </div>}
 
-                        {activeTab === 2 &&
+                    {activeTab === 2 &&
                         <div className="grid grid-cols-4 max-sm:grid-cols-1 gap-5">
                             {
                                 products && products.map(product => {
@@ -100,8 +115,71 @@ const Products = () => {
                                     }
                                 })
                             }
-                        </div>}
-                    {activeTab === 3 && <p>Content of Tab 3</p>}
+                        </div>
+                    }
+
+
+
+                    {activeTab === 3 &&
+                        <div className="grid grid-cols-4 max-sm:grid-cols-1 gap-5">
+                            {
+                                products && products.map(product => {
+                                    console.log(product)
+                                    if (product?.category === 'Cap') {
+                                        // console.log(product)
+                                        return (
+                                            <div className="card w-72 mx-auto bg-base-100 shadow-xl">
+                                                <figure className="px-5 pt-5">
+                                                    <img src={product?.img} alt="Shoes" className="rounded-xl" />
+                                                </figure>
+                                                <div className="card-body items-center">
+                                                    <h2 className="card-title">{product?.name}</h2>
+
+                                                    <p>Seller: {product?.seller}</p>
+                                                    <p>Rating: {product?.ratings}</p>
+                                                    <div className="flex items-center gap-16 mt-2">
+                                                        <span className='text-2xl font-bold'>${product?.price}</span>
+                                                        <button className="btn hover:border-yellow-300">Buy Now</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        )
+                                    }
+                                })
+                            }
+                        </div>
+                    }
+                    {activeTab === 4 &&
+                        <div className="grid grid-cols-4 max-sm:grid-cols-1 gap-5">
+                            {
+                                products && products.map(product => {
+                                    console.log(product)
+                                    if (product?.category === 'Bottle') {
+                                        // console.log(product)
+                                        return (
+                                            <div className="card w-72 mx-auto bg-base-100 shadow-xl">
+                                                <figure className="px-5 pt-5">
+                                                    <img src={product?.img} alt="Shoes" className="rounded-xl" />
+                                                </figure>
+                                                <div className="card-body items-center">
+                                                    <h2 className="card-title">{product?.name}</h2>
+
+                                                    <p>Seller: {product?.seller}</p>
+                                                    <p>Rating: {product?.ratings}</p>
+                                                    <div className="flex items-center gap-16 mt-2">
+                                                        <span className='text-2xl font-bold'>${product?.price}</span>
+                                                        <button className="btn hover:border-yellow-300">Buy Now</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        )
+                                    }
+                                })
+                            }
+                        </div>
+                    }
+
+                    {/* {activeTab === 4 && <Link to='/allProducts'></Link>} */}
                 </div>
             </div>
         </div>
