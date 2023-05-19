@@ -1,7 +1,9 @@
 import React from 'react';
 import logo from '../Photos/E_Store_logo.png';
 
-const Navbar = () => {
+const Navbar = (props) => {
+    const [cartItems] = props.cartData;
+    console.log(cartItems);
     return (
         <div>
             <div className="navbar bg-base-100 fixed z-10 max-sm:px-5 px-10 mx-auto top-0 shadow">

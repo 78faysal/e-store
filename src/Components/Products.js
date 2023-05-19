@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Navbar from './Navbar';
 
 const Products = () => {
 
@@ -49,8 +50,10 @@ const Products = () => {
 
     const handleAddToCart = (data) => {
         // Add the selected product to the cart
-        setCartItems(data);
-        console.log(cartItems);
+        setCartItems((prevCartItems) => [...prevCartItems, data]);
+        <Navbar 
+        key={data.key}
+        cartData={cartItems}></Navbar>
     }
 
 
