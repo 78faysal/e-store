@@ -22,6 +22,7 @@ const Products = () => {
     const [showModal, setShowModal] = useState(false);
     const [modalData, setModalData] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
+    const [cartItems, setCartItems] = useState([]);
 
     const openModal = (product) => {
         setIsLoading(true);
@@ -45,6 +46,14 @@ const Products = () => {
             document.body.style.overflow = 'auto'; // Enable scrolling of the background content
         }
     }, [showModal]);
+
+    const handleAddToCart = (data) => {
+        // Add the selected product to the cart
+        setCartItems(data);
+        console.log(cartItems);
+    }
+
+
 
     return (
         <div className='py-10'>
@@ -92,7 +101,6 @@ const Products = () => {
                         <div className="grid grid-cols-4 max-sm:grid-cols-1 gap-5">
                             {
                                 products && products.map(product => {
-                                    console.log(product)
                                     if (product?.category === 'Bag') {
                                         // console.log(product)
                                         return (
@@ -124,7 +132,7 @@ const Products = () => {
                         <div className="grid grid-cols-4 max-sm:grid-cols-1 gap-5">
                             {
                                 products && products.map(product => {
-                                    console.log(product)
+                                    // console.log(product)
                                     if (product?.category === 'Earphones') {
                                         // console.log(product)
                                         return (
@@ -153,13 +161,11 @@ const Products = () => {
                         </div>
                     }
 
-
-
                     {activeTab === 3 &&
                         <div className="grid grid-cols-4 max-sm:grid-cols-1 gap-5">
                             {
                                 products && products.map(product => {
-                                    console.log(product)
+                                    // console.log(product)
                                     if (product?.category === 'Cap') {
                                         // console.log(product)
                                         return (
@@ -191,7 +197,7 @@ const Products = () => {
                         <div className="grid grid-cols-4 max-sm:grid-cols-1 gap-5">
                             {
                                 products && products.map(product => {
-                                    console.log(product)
+                                    // console.log(product)
                                     if (product?.category === 'Bottle') {
                                         // console.log(product)
                                         return (
@@ -225,7 +231,6 @@ const Products = () => {
                     {/* {activeTab === 4 && <Link to='/allProducts'></Link>} */}
 
 
-
                     {showModal && (
                         <div className="fixed z-10 inset-0 overflow-y-auto">
                             <div className="flex items-center justify-center min-h-screen p-4">
@@ -249,7 +254,9 @@ const Products = () => {
                                             >
                                                 Close
                                             </button>
-                                            <button className='bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded'>Add to Cart</button>
+                                            <button
+                                                onClick={() => handleAddToCart(modalData)}
+                                                className='bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded'>Add to Cart</button>
                                         </div>
                                     </div>
                                 </div>
