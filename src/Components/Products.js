@@ -19,14 +19,31 @@ const Products = () => {
 
 
     const [showModal, setShowModal] = useState(false);
+    const [modalData, setModalData] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
 
-    const openModal = () => {
-        setShowModal(true);
+    const openModal = (product) => {
+        setIsLoading(true);
+
+        // Simulate data fetching delay
+        setTimeout(() => {
+            setModalData(product);
+            setIsLoading(false);
+            setShowModal(true);
+        }, 20);
     };
 
     const closeModal = () => {
         setShowModal(false);
     };
+
+    useEffect(() => {
+        if (showModal) {
+            document.body.style.overflow = 'hidden'; // Disable scrolling of the background content
+        } else {
+            document.body.style.overflow = 'auto'; // Enable scrolling of the background content
+        }
+    }, [showModal]);
 
     return (
         <div className='py-10'>
@@ -139,7 +156,7 @@ const Products = () => {
                                     if (product?.category === 'Cap') {
                                         // console.log(product)
                                         return (
-                                            <div className="card w-72 mx-auto bg-base-100 shadow-xl">
+                                            <div className="card w-72 mx-auto bg-base-100 shadow-xl" key={product.id}>
                                                 <figure className="px-5 pt-5">
                                                     <img src={product?.img} alt="Shoes" className="rounded-xl" />
                                                 </figure>
@@ -150,7 +167,10 @@ const Products = () => {
                                                     <p>Rating: {product?.ratings}</p>
                                                     <div className="flex items-center gap-16 mt-2">
                                                         <span className='text-2xl font-bold'>${product?.price}</span>
-                                                        <button className="btn hover:border-yellow-300">Buy Now</button>
+                                                        <button
+                                                            type='button'
+                                                            onClick={() => openModal(product)}
+                                                            className="btn hover:border-yellow-300">Buy Now</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -168,7 +188,7 @@ const Products = () => {
                                     if (product?.category === 'Bottle') {
                                         // console.log(product)
                                         return (
-                                            <div className="card w-72 mx-auto bg-base-100 shadow-xl">
+                                            <div className="card w-72 mx-auto bg-base-100 shadow-xl" key={product.id}>
                                                 <figure className="px-5 pt-5">
                                                     <img src={product?.img} alt="Shoes" className="rounded-xl" />
                                                 </figure>
@@ -181,7 +201,7 @@ const Products = () => {
                                                         <span className='text-2xl font-bold'>${product?.price}</span>
                                                         <button
                                                             type='button'
-                                                            onClick={openModal}
+                                                            onClick={() => openModal(product)}
                                                             className="btn hover:border-yellow-300">Buy Now</button>
                                                     </div>
                                                 </div>
@@ -196,18 +216,29 @@ const Products = () => {
                             {showModal && (
                                 <div className="fixed z-10 inset-0 overflow-y-auto">
                                     <div className="flex items-center justify-center min-h-screen p-4">
-                                        <div className="bg-gray-500 text-white rounded-lg p-6 backdrop-filter backdrop-blur-4xl">
-                                            <h2 className="text-2xl font-bold mb-4">Modal Title</h2>
-                                            <p className="mb-4">
-                                                This is the modal content. You can add any additional content or components here.
-                                            </p>
-                                            <button
-                                                type="button"
-                                                className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded"
-                                                onClick={closeModal}
-                                            >
-                                                Close
-                                            </button>
+                                        <div className="bg-gray-700 text-white rounded-lg p-6 backdrop-filter backdrop-blur-xl flex flex-wrap gap-8 items-center">
+                                            <img className='w-80' src={modalData.img} alt="" />
+                                            <div>
+                                                <h2 className="text-2xl font-bold mb-4">{modalData.name}</h2>
+                                                <div class="rating rating-xs items-center gap-2">
+                                                    Rating: {modalData.ratings}
+                                                    <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" />
+                                                </div>
+                                                <p>Reviews: {modalData.ratingsCount}</p>
+                                                <p>Seller: {modalData.seller}</p>
+                                                <p>Available: {modalData.stock}</p>
+                                                <p className='text-2xl'>{modalData.price}$</p>
+                                                <div className='mt-4'>
+                                                    <button
+                                                        type="button"
+                                                        className="bg-gray-300 hover:bg-gray-400 text-gray-800 me-3 font-semibold py-2 px-4 rounded"
+                                                        onClick={closeModal}
+                                                    >
+                                                        Close
+                                                    </button>
+                                                    <button className='bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded'>Add to Cart</button>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

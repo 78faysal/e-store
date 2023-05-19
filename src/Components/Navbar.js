@@ -12,7 +12,7 @@ const Navbar = () => {
                     <div className="flex-none max-sm:hidden">
                         <ul className="menu menu-horizontal px-1">
                             <li><a to='/'>Home</a></li>
-                            <li><a to='/items'>Products</a></li>
+                            <li><a to='/products'>Products</a></li>
                             <li><a>Contact Us</a></li>
                             <li tabIndex="0">
                                 <a to='/categories'>
