@@ -51,9 +51,13 @@ const Products = () => {
     const handleAddToCart = (data) => {
         // Add the selected product to the cart
         setCartItems((prevCartItems) => [...prevCartItems, data]);
-        <Navbar 
-        key={data.key}
-        cartData={cartItems}></Navbar>
+        console.log(cartItems)
+        return (
+            <Navbar
+                key={data.key}
+                cartData={cartItems}
+            />
+        );
     }
 
 

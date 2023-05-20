@@ -2,7 +2,7 @@ import React from 'react';
 import logo from '../Photos/E_Store_logo.png';
 
 const Navbar = (props) => {
-    const [cartItems] = props.cartData;
+    const cartItems = props.cartData;
     console.log(cartItems);
     return (
         <div>
