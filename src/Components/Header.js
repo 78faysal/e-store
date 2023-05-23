@@ -50,9 +50,9 @@ const Header = () => {
         <div className='my-20'>
             <>
                 <Swiper
-                    pagination={{
-                        type: "progressbar",
-                    }}
+                    // pagination={{
+                    //     type: "progressbar",
+                    // }}
                     navigation={true}
                     modules={[Pagination, Navigation]}
                     className="mySwiper"

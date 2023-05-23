@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import logo from '../Photos/E_Store_logo.png';
+import { CartContext } from './Products';
 
-const Navbar = (props) => {
-    const cartItems = props.cartData;
+const Navbar = () => {
+    const cartItems = useContext(CartContext);
     console.log(cartItems);
     return (
         <div>
             <div className="navbar bg-base-100 fixed z-10 max-sm:px-5 px-10 mx-auto top-0 shadow">
                 <div className="flex-1">
                     <img className='h-16' src={logo} alt="" />
+                    <h2>{cartItems?.name}</h2>
                 </div>
                 <div className="flex-none">
                     <div className="flex-none max-sm:hidden">

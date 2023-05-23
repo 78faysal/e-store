@@ -4,8 +4,13 @@ import Home from './Components/Home';
 import AllProducts from './Components/AllProducts';
 import Contact from './Components/Contact';
 import NotFound from './Components/NotFound';
+import { CartContext } from './Components/Products';
+import { useState } from 'react';
 
 function App() {
+
+  const [cartItems, setCartItems] = useState([]);
+
   const router = createBrowserRouter([
     {
       path: '/',
@@ -31,9 +36,9 @@ function App() {
     }
   ])
   return (
-    <div>
+    <CartContext.Provider value={{ cartItems, setCartItems }}>
       <Home></Home>
-    </div>
+    </CartContext.Provider>
   );
 }
 
