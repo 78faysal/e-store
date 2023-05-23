@@ -10,14 +10,11 @@ import Contact from './Contact';
 const Home = () => {
     return (
         <div>
-            <Navbar></Navbar>
             <Header></Header>
             <Products></Products>
             <Offers></Offers>
             <Testimonials></Testimonials>
             <Contact></Contact>
-
-            <Footer></Footer>
         </div>
     );
 };

@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import logo from '../Photos/E_Store_logo.png';
 import { CartContext } from './Products';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     const cartItems = useContext(CartContext);
@@ -19,14 +20,14 @@ const Navbar = () => {
                 <div className="flex-none">
                     <div className="flex-none max-sm:hidden">
                         <ul className="menu menu-horizontal px-1">
-                            <li><a to='/'>Home</a></li>
-                            <li><a to='/products'>Products</a></li>
-                            <li><a>Contact Us</a></li>
+                            <li><Link to='/'>Home</Link></li>
+                            <li><Link to='/products'>Products</Link></li>
+                            <li><Link to='/contact'>Contact Us</Link></li>
                             <li tabIndex="0">
-                                <a to='/categories'>
+                                <Link to='/categories'>
                                     Categories
                                     <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
-                                </a>
+                                </Link>
                                 <ul className="p-2 bg-base-100">
                                     <li><a to='/categories/'>Submenu 1</a></li>
                                     <li><a to='/categories/'>Submenu 2</a></li>
