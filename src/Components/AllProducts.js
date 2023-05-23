@@ -54,9 +54,10 @@ const AllProducts = () => {
 
     return (
         <div className='mt-20'>
-            <div className="form-control p-10 flex">
+            <h2 className='text-3xl font-bold text-center pt-5'>Get All Products</h2>
+            <div className="form-control p-5 flex flex-row justify-center gap-5">
                 <input type="text" placeholder="Search" className=" w-96 input input-bordered" />
-                <button className="btn btn-active w-54">Button</button>
+                <button className="btn btn-active w-54">Search</button>
             </div>
             <div className="grid grid-cols-4 max-sm:grid-cols-1 gap-5">
                 {
