@@ -8,6 +8,8 @@ import { CartContext } from './Components/Products';
 import { useState } from 'react';
 import Navbar from './Components/Navbar';
 import Footer from './Components/Footer';
+import LogIn from './Components/LogIn';
+import Register from './Components/Register';
 
 function App() {
 
@@ -45,6 +47,8 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/products' element={<AllProducts />} />
           <Route path='/contact' element={<Contact />} />
+          <Route path='/login' element={<LogIn />} />
+          <Route path='/register' element={<Register />} />
           {/* <Route path='/' element={<Home />} /> */}
           <Route path='*' element={<NotFound />} />
         </Routes>
