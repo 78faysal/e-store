@@ -53,8 +53,7 @@ const Products = () => {
 
 
     const handleAddToCart = (data) => {
-        const selectedItems = (prevCartItems) => [...prevCartItems, data];
-        localStorage.setCartItems('selectedItems', JSON.stringify(selectedItems));
+        setCartItems((prevCartItems) => [...prevCartItems, data]);
         console.log(data);
     };
 
@@ -93,19 +92,20 @@ const Products = () => {
                         >
                             Bottle
                         </div>
-                        <div
+                        <Link 
+                            to='/products'
                             className={`p-2 mx-2 rounded-full font-semibold px-4 max-sm:mt-2 cursor-pointer ${activeTab === 5 ? 'bg-gray-700 text-white' : 'bg-gray-200 text-gray-600'
                                 }`}
-                            onClick={() => handleTabClick(5)}
                         >
                             All
-                        </div>
+                        </Link>
                     </div>
                     <div className="w-full container">
                         {activeTab === 1 &&
                             <div className="grid grid-cols-4 max-sm:grid-cols-1 gap-5">
                                 {
-                                    products && products.map(product => {
+                                    [...Array(4)].map((_, index) => {
+                                        const product = products.filter(item => item?.category === 'Bag')[index];
                                         if (product?.category === 'Bag') {
                                             // console.log(product)
                                             return (
@@ -136,7 +136,8 @@ const Products = () => {
                         {activeTab === 2 &&
                             <div className="grid grid-cols-4 max-sm:grid-cols-1 gap-5">
                                 {
-                                    products && products.map(product => {
+                                    [...Array(4)].map((_, index) => {
+                                        const product = products.filter(item => item?.category === 'Earphones')[index];
                                         // console.log(product)
                                         if (product?.category === 'Earphones') {
                                             // console.log(product)
@@ -169,7 +170,8 @@ const Products = () => {
                         {activeTab === 3 &&
                             <div className="grid grid-cols-4 max-sm:grid-cols-1 gap-5">
                                 {
-                                    products && products.map(product => {
+                                    [...Array(4)].map((_, index) => {
+                                        const product = products.filter(item => item?.category === 'Cap')[index];
                                         // console.log(product)
                                         if (product?.category === 'Cap') {
                                             // console.log(product)
@@ -201,7 +203,8 @@ const Products = () => {
                         {activeTab === 4 &&
                             <div className="grid grid-cols-4 max-sm:grid-cols-1 gap-5">
                                 {
-                                    products && products.map(product => {
+                                    [...Array(4)].map((_, index) => {
+                                        const product = products.filter(item => item?.category === 'Bottle')[index];
                                         // console.log(product)
                                         if (product?.category === 'Bottle') {
                                             // console.log(product)
@@ -232,8 +235,6 @@ const Products = () => {
 
                             </div>
                         }
-
-                        {/* {activeTab === 4 && <Link to='/allProducts'></Link>} */}
 
 
                         {showModal && (
