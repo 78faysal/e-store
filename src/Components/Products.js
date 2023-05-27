@@ -100,7 +100,7 @@ const Products = () => {
                             All
                         </Link>
                     </div>
-                    <div className="w-full container">
+                    <div className="w-full container p-5">
                         {activeTab === 1 &&
                             <div className="grid grid-cols-4 max-sm:grid-cols-1 gap-5">
                                 {
@@ -235,6 +235,9 @@ const Products = () => {
 
                             </div>
                         }
+
+
+                        {/* <Link>All Products</Link> */}
 
 
                         {showModal && (
