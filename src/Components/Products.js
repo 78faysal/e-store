@@ -53,7 +53,8 @@ const Products = () => {
 
 
     const handleAddToCart = (data) => {
-        setCartItems((prevCartItems) => [...prevCartItems, data]);
+        const selectedItems = (prevCartItems) => [...prevCartItems, data];
+        localStorage.setCartItems('selectedItems', JSON.stringify(selectedItems));
         console.log(data);
     };
 

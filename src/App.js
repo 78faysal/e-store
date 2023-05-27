@@ -5,15 +5,17 @@ import AllProducts from './Components/AllProducts';
 import Contact from './Components/Contact';
 import NotFound from './Components/NotFound';
 import { CartContext } from './Components/Products';
-import { useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import Navbar from './Components/Navbar';
 import Footer from './Components/Footer';
 import LogIn from './Components/LogIn';
 import Register from './Components/Register';
 
+
 function App() {
 
   const [cartItems, setCartItems] = useState([]);
+
 
   // const router = createBrowserRouter([
   //   {

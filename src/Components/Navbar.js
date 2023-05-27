@@ -42,14 +42,26 @@ const Navbar = () => {
                                 <span className="badge badge-sm indicator-item">{cartItems.cartItems.length}</span>
                             </div>
                         </label>
-                        <div tabIndex="0" className="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow">
+                        <div tabIndex="0" className="mt-3 card card-compact dropdown-content w-56 bg-base-100 shadow">
                             <div className="card-body">
                                 <span className="font-bold text-lg">{cartItems.cartItems.length} Items</span>
                                 <ul>
                                     {
                                         cartItems.cartItems.map(cartItem => {
                                             return(
-                                                <li>{cartItem.name} - ${cartItem.price}</li>
+                                                <li className='flex'>
+                                                    {cartItem.name} - ${cartItem.price}
+                                                    
+                                                    <p>  x</p>
+                                                </li>
+                                                // <div className='flex'>
+                                                //     <img className='h-14' src={cartItem?.img} alt="" />
+                                                //     <div>
+                                                //         <h2 className='font-bold'>{cartItem.name}</h2>
+                                                //         <p>${cartItem.price}</p>
+                                                //     </div>
+                                                //     <button className='btn bg-white text-black hover:bg-gray-100 '>Remove</button>
+                                                // </div>
                                             )
                                         })
                                     }

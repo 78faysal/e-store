@@ -47,8 +47,13 @@ const AllProducts = () => {
 
 
     const handleAddToCart = (data) => {
-        setCartItems((prevCartItems) => [...prevCartItems, data]);
+        const selectedItems = JSON.parse(localStorage.getItem('selectedItems')) || [];
+        selectedItems.push(data);
+        setCartItems(localStorage.setItem('selectedItems', JSON.stringify(selectedItems)));
         console.log(data);
+
+        // const storedSelectedItems = JSON.parse(localStorage.getItem('selectedItems'));
+        console.log(cartItems);
     };
 
 
