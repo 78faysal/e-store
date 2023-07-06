@@ -18,7 +18,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div>
-                    <p>Copyright © 2023 - All right reserved by Md Faysal</p>
+                    <p>Copyright © 2023 - All right reserved Md Faysal</p>
                 </div>
             </footer>
         </div>
